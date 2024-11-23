@@ -5,6 +5,7 @@ import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import { FAILS_DATA } from '@utils/mocks/failsData';
 import { Key } from 'react';
+import { gallerySection, h1TextStyle, rankingSection } from './HomePage.style';
 
 const rankingData = [
   {
@@ -33,8 +34,12 @@ const HomePage = () => {
   return (
     <div>
       <Header isGoBack={false} />
-      <RankingSection rankingData={rankingData} />
-
+      <section css={rankingSection}>
+        <RankingSection rankingData={rankingData} />
+      </section>
+      <h1 css={h1TextStyle}>
+        <span>OOPSIE!</span> 갤러리
+      </h1>
       {FAILS_DATA.data.failInfos.map(
         (fail: {
           failId: Key | null | undefined;
@@ -44,7 +49,7 @@ const HomePage = () => {
           pellikeonCount: number;
           talentCount: number;
         }) => (
-          <div key={fail.failId} style={{ marginBottom: '20px' }}>
+          <div key={fail.failId} css={gallerySection}>
             {/* Card 컴포넌트로 content 표시 */}
             <Card content={fail.content} />
             {/* Emoticon 컴포넌트로 클릭된 이모티콘 데이터 표시 */}
@@ -57,7 +62,6 @@ const HomePage = () => {
           </div>
         )
       )}
-
       <Footer />
     </div>
   );
