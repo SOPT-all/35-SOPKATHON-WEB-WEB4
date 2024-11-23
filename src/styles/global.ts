@@ -21,6 +21,7 @@ const globalStyle = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #000;
   }
 
   a {
@@ -37,8 +38,8 @@ const globalStyle = css`
     width: 100%;
     min-width: var(--min-width);
     max-width: var(--max-width);
-    min-height: 100dvh;
-    background-color: #fff;
+    /* min-height: 100dvh; */
+    background-color: #000;
     margin: 0 auto;
   }
 

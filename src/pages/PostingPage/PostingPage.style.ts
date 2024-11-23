@@ -2,8 +2,9 @@ import { css, Theme } from '@emotion/react';
 
 export const pageContainer = (theme: Theme) => css`
   width: 100%;
-  height: 100dvh;
+  /* height: 100dvh; */
   background-color: ${theme.color.black};
+  padding-bottom: 7rem;
 `;
 
 export const mainStyle = css`
@@ -12,6 +13,7 @@ export const mainStyle = css`
   align-items: center;
   padding: 1.4rem 2rem 4rem;
   width: 100%;
+  min-height: 63.1rem;
 `;
 
 export const topSection = (theme: Theme) => css`
@@ -92,6 +94,10 @@ export const uploadButton = (theme: Theme) => css`
   padding: 1.2rem 0;
   border-radius: 50px;
   background-color: ${theme.color.lime};
+
+  cursor: pointer;
+
+  margin-top: auto;
 
   color: ${theme.color.black};
   ${theme.font.subtitle3_b_18};
