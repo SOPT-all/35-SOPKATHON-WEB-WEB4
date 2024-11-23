@@ -40,28 +40,30 @@ const HomePage = () => {
       <h1 css={h1TextStyle}>
         <span>OOPSIE!</span> 갤러리
       </h1>
-      {FAILS_DATA.data.failInfos.map(
-        (fail: {
-          failId: Key | null | undefined;
-          content: string;
-          goodCount: number;
-          drinkCount: number;
-          pellikeonCount: number;
-          talentCount: number;
-        }) => (
-          <div key={fail.failId} css={gallerySection}>
-            {/* Card 컴포넌트로 content 표시 */}
-            <Card content={fail.content} />
-            {/* Emoticon 컴포넌트로 클릭된 이모티콘 데이터 표시 */}
-            <Emoticon
-              goodCount={fail.goodCount}
-              drinkCount={fail.drinkCount}
-              pellikeonCount={fail.pellikeonCount}
-              talentCount={fail.talentCount}
-            />
-          </div>
-        )
-      )}
+      <section css={gallerySection}>
+        {FAILS_DATA.data.failInfos.map(
+          (fail: {
+            failId: Key | null | undefined;
+            content: string;
+            goodCount: number;
+            drinkCount: number;
+            pellikeonCount: number;
+            talentCount: number;
+          }) => (
+            <div key={fail.failId}>
+              {/* Card 컴포넌트로 content 표시 */}
+              <Card content={fail.content} />
+              {/* Emoticon 컴포넌트로 클릭된 이모티콘 데이터 표시 */}
+              <Emoticon
+                goodCount={fail.goodCount}
+                drinkCount={fail.drinkCount}
+                pellikeonCount={fail.pellikeonCount}
+                talentCount={fail.talentCount}
+              />
+            </div>
+          )
+        )}
+      </section>
       <Footer />
     </div>
   );
