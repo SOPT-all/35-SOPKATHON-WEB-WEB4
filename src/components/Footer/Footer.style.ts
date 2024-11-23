@@ -4,7 +4,10 @@ import { css } from '@emotion/react';
 export const footerContainer = (theme: Theme) => css`
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  bottom: 0;
   padding: 0.8rem 2rem;
+  width: 37.5rem;
   height: 7rem;
   background-color: ${theme.color.gray900};
 
