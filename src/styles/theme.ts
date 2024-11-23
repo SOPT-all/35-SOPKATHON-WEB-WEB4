@@ -13,6 +13,9 @@ const theme = {
     gray800: '#323339',
     gray900: '#212224',
     black: '#000000',
+
+    green: '#00E55E',
+    lime: '#CCF872',
   },
 
   font: {
