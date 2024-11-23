@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import CompleteModal from './components/CompleteModal/CompleteModal';
 import Header from '@components/Header/Header';
-import { IcArrowLeft } from '@assets/svg';
+import {
+  IcArrowLeft,
+  IcBgActive1,
+  IcBgActive2,
+  IcBgActive3,
+  IcBgInactive1,
+  IcBgInactive2,
+  IcBgInactive3,
+} from '@assets/svg';
 import {
   backIcon,
+  imgSelectIcon,
   mainStyle,
   pageContainer,
   selectBackgroundContainer,
@@ -15,8 +24,30 @@ import {
 import Footer from '@components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
+const iconMappings = [
+  {
+    type: 'A',
+    inactive: IcBgInactive1,
+    active: IcBgActive1,
+    bgImage: 'public/svg/ic_failnote_1_335.svg',
+  },
+  {
+    type: 'B',
+    inactive: IcBgInactive2,
+    active: IcBgActive2,
+    bgImage: 'public/svg/ic_failnote_2_335.svg',
+  },
+  {
+    type: 'C',
+    inactive: IcBgInactive3,
+    active: IcBgActive3,
+    bgImage: 'public/svg/ic_failnote_3_335.svg',
+  },
+];
+
 const Posting = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBg, setSelectedBg] = useState(0);
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -25,6 +56,18 @@ const Posting = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const handleBgClick = (index: number) => {
+    setSelectedBg(index);
+  };
+
+  const handleUpload = () => {
+    const selectedType = iconMappings[selectedBg].type;
+    // 서버로 데이터를 보낼 때 selectedLetter를 포함시킵니다.
+    console.log('Selected Background Letter:', selectedType);
+    // 여기에 서버로 데이터를 보내는 로직을 추가하세요.
+    openModal();
+  };
 
   return (
     <>
@@ -38,12 +81,22 @@ const Posting = () => {
             </h1>
           </section>
           <section css={textareaSection}>
-            <textarea css={textareaStyle} placeholder="당신의 실패경험을 적어주세요." />
+            <textarea
+              css={textareaStyle(iconMappings[selectedBg].bgImage)}
+              placeholder="당신의 실패경험을 적어주세요."
+            />
           </section>
           <section css={selectBackgroundContainer}>
-            <div>배경 1</div>
-            <div>배경 2</div>
-            <div>배경 3</div>
+            {iconMappings.map((icon, index) => {
+              const IconComponent = selectedBg === index ? icon.active : icon.inactive;
+              return (
+                <IconComponent
+                  key={icon.type}
+                  onClick={() => handleBgClick(index)}
+                  css={imgSelectIcon}
+                />
+              );
+            })}
           </section>
           <button onClick={openModal} css={uploadButton}>
             업로드
