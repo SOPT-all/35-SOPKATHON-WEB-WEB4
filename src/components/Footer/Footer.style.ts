@@ -1,43 +1,48 @@
+import { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
-export const footerContainer = css`
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1rem;
+export const footerContainer = (theme: Theme) => css`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  height: 7rem;
+  background-color: ${theme.color.gray900};
+
+  span {
+    color: ${theme.color.gray600};
+    ${theme.font.body4_m_12};
+  }
 `;
 
-export const homeWrapper = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const footerBtnWrapper = (theme: Theme) => css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
+  &:hover {
+    span {
+      color: ${theme.color.white};
     }
+    path {
+      fill: ${theme.color.white};
+    }
+  }
 `;
 
-export const addPostWrapper = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
-    }
+export const footerIconStyle = css`
+  width: 3.2rem;
+  height: 3.2rem;
 `;
 
-export const myPageWrapper = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const activeFooterTextStyle = (theme: Theme) => css`
+  span {
+    color: ${theme.color.white};
+  }
+`;
 
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
-    }
+export const activeFooterIconStyle = (theme: Theme) => css`
+  path {
+    fill: ${theme.color.white};
+  }
 `;
