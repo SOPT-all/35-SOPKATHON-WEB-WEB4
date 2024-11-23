@@ -1,35 +1,46 @@
+import { useEffect, useState } from 'react';
+import { GetAllFails, GetFailById } from '../../apis/api';
 import RankingSection from '@components/RankingSection/RankingSection';
 import Card from '@components/Card/Card';
 import Emoticon from '@components/Emoticon/Emoticon';
 
-const rankingData = [
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 0,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 12,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 44,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 32,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 3,
-  },
-];
-
 const HomePage = () => {
+  const [failInfos, setFailInfos] = useState([]);
+  const [selectedFail, setSelectedFail] = useState(null);
+
+  const fetchFailInfos = async () => {
+    try {
+      const data = await GetAllFails();
+      setFailInfos(data);
+    } catch (error) {
+      console.error('Failed to fetch fail infos:', error);
+    }
+  };
+
+  const fetchFailById = async (failId: number) => {
+    try {
+      const data = await GetFailById(failId);
+      setSelectedFail(data);
+    } catch (error) {
+      console.error('Failed to fetch fail by ID:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFailInfos();
+  }, []);
+
   return (
     <div>
-      <RankingSection rankingData={rankingData} />
-      <Card content={''} />
+      <RankingSection
+        rankingData={failInfos.map((fail) => ({
+          text: fail.content,
+          count: fail.goodCount + fail.talentCount + fail.pellikeonCount + fail.drinkCount,
+        }))}
+      />
+
+      {selectedFail && <Card content={selectedFail.content} />}
+
       <Emoticon />
     </div>
   );
