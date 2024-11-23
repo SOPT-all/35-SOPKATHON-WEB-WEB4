@@ -9,7 +9,6 @@ const Header = ({ isGoBack }: HeaderProps) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    console.log('afe');
     navigate(-1);
   };
   return (
