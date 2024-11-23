@@ -1,17 +1,16 @@
-import * as styles from './Card.style';
+import { cardWrapper, contentStyle, moreButton } from './Card.style';
 
 interface CardProps {
   content: string;
-  onClickMore?: () => void;
 }
 
-function Card({ content, onClickMore }: CardProps) {
+function Card({ content }: CardProps) {
   return (
-    <div css={styles.cardWrapper}>
-      <p css={styles.content}>{content}</p>
-      <span css={styles.moreButton} onClick={onClickMore}>
-        . . .더보기
-      </span>
+    <div css={cardWrapper}>
+      <p css={contentStyle}>{content}</p>
+      <button css={moreButton} onClick={() => {}}>
+        더보기
+      </button>
     </div>
   );
 }

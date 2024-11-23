@@ -13,9 +13,15 @@ import {
   uploadButton,
 } from './PostingPage.style';
 import Footer from '@components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Posting = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -26,8 +32,10 @@ const Posting = () => {
         <Header isGoBack={false} />
         <main css={mainStyle}>
           <section css={topSection}>
-            <IcArrowLeft css={backIcon} />
-            <h1>나의 멋진 실패 기록</h1>
+            <IcArrowLeft css={backIcon} onClick={handleBackClick} />
+            <h1>
+              나의 멋진 <span>OOPSIE!</span> 기록
+            </h1>
           </section>
           <section css={textareaSection}>
             <textarea css={textareaStyle} placeholder="당신의 실패경험을 적어주세요." />
