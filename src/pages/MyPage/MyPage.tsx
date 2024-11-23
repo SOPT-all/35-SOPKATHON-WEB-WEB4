@@ -1,13 +1,30 @@
+import { useEffect, useState } from 'react';
 import Header from '@components/Header/Header';
-import { MY_FAILS_DATA } from '@utils/mocks/myFailsData';
 import Card from '@components/Card/Card';
 import Emoticon from '@components/Emoticon/Emoticon';
-import { badge, failCardWrapper, failRecordsContainer, titleStyle } from './MyPage.style';
 import Footer from '@components/Footer/Footer';
+import { badge, failCardWrapper, failRecordsContainer, titleStyle } from './MyPage.style';
 import { ImgPelican24 } from '@assets/svg';
+import { getMyFails } from '@/apis/getFails';
 
 const MyPage = () => {
-  const { failsInfos } = MY_FAILS_DATA.data;
+  const [failsInfos, setFailsInfos] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchFails = async () => {
+      try {
+        const data = await getMyFails();
+        setFailsInfos(data.failInfos);
+      } catch (err) {
+        if (err instanceof Error) {
+          console.error(err.message);
+        }
+      }
+    };
+
+    fetchFails();
+  }, []);
+
 
   return (
     <div>
