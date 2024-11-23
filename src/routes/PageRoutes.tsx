@@ -4,8 +4,8 @@ import { DetailPage, HomePage, MyPage, Posting } from "@pages/index";
 
 const pageRoutes: RouteType[]=[
     {
-       path:routhPath.HOME,
-       element: <HomePage/>
+        path:routhPath.HOME,
+        element: <HomePage/>
     },
     {
         path:routhPath.DETAIL,

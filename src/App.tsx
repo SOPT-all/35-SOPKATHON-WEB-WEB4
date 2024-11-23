@@ -3,7 +3,6 @@ import globalStyle from '@styles/global';
 import theme from '@styles/theme';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import pageRoutes from '@routes/PageRoutes';
-
 function App() {
   const router = createBrowserRouter([...pageRoutes]);
   return (
