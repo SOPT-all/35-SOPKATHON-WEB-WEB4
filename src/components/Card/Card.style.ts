@@ -3,19 +3,19 @@ import theme from '@/styles/theme';
 
 export const cardWrapper = css`
   width: 100%;
-  height: 10rem;
+  height: 16rem;
   padding: 0.5rem;
   background-color: ${theme.color.gray100};
   text-align: center;
 `;
 
 export const content = css`
-  width: 15rem;
+  width: 240px;
   margin: 0;
   color: ${theme.color.gray800};
   ${theme.font.body1_m_16};
   line-height: 1.5;
-  height: 3em;
+  height: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -30,7 +30,6 @@ export const moreButton = css`
   font-size: 0.875rem;
   cursor: pointer;
   transition: color 0.2s ease;
-
   &:hover {
     color: ${theme.color.gray800};
   }
