@@ -9,13 +9,13 @@ const detailCardWrapper = (theme: Theme) => css`
   position: relative;
   min-height: 37.5rem;
   padding: 8rem 2rem;
-  background-color: ${theme.color.gray300};
+  background-color: ${theme.color.gray900};
 `;
 
 const detailDescription = (theme: Theme) => css`
   text-align: center;
   ${theme.font.body2_m_14};
-  color: ${theme.color.black};
+  color: ${theme.color.white};
 `;
 
 const detailAuthor = (theme: Theme) => css`
