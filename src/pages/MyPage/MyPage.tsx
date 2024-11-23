@@ -36,7 +36,7 @@ const MyPage = () => {
         {failsInfos.map((fail, index) => (
           <div key={fail.failId} css={failCardWrapper}>
             {index === 0 && <ImgPelican24 css={badge} />}
-            <Card content={fail.content} />
+            <Card failId={fail.failId} content={fail.content} />
             <Emoticon
               goodCount={fail.goodCount}
               drinkCount={fail.drinkCount}
