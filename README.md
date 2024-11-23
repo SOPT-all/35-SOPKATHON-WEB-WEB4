@@ -22,18 +22,29 @@
 
 ## 팀원 및 역할 분담 👬
 
-- 강민하
-    - 마이페이지 퍼블리싱
-    - 내 실패 목록 조회 API 연결
+| <img src="https://avatars.githubusercontent.com/u/118591632?s=400&u=86faba07e97d39ff19e7fab0fc90533d72d6a6c8&v=4" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/90778858?v=4" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/thisishwarang?v=4" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/bykbyk0401?v=4" width="100" height="100"> |
+|:---:|:---:|:---:|:---:|
+| [강민하](https://github.com/gonn-i) | [이윤지](https://github.com/gwagjiug) | [임화랑](https://github.com/daahyunk) | [배영경](https://github.com/shroqkf) |
+
+<br>
+
+- 강민하 (리드)
+    - 게시글 상세보기 뷰 담당
+    - 실패 공감 이모지 등록 API 연결 (POST)
+    - 실패 공감 이모지 취소 API 연결 (DELETE)
 - 이윤지
-    - 홈 페이지
-    - 전체 실패 목록 조회 API 연결
+    - 메인 페이지 뷰 담당
+    - 전체 실패 목록 조회 API 연결 (GET)
 - 임화랑
-    - 글 등록 페이지
-    - 실패 공감 순위 조회 API 연결, 글 작성 API 연결
+    - 글 등록 페이지 뷰 담당
+    - 메인페이지 뷰 관련 컴포넌트 담당
+    - 실패글 등록 API 연결 (POST)
 - 배영경
-    - 글 디테일 페이지
-    - 실패 공감 이모지 등록/취소 API 연결
+    - 마이페이지 뷰 담당
+    - 전체 실패 목록 조회 API 연결 (GET)
+    - 실패 공감 순위 조회 API 연결 (GET)
+    - 상세 실패글 조회 API 연결 (GET)
+  
 
 ## 그라운드 룰 ✍️
 
@@ -121,3 +132,7 @@ yarn (version 1.22.22)
 ## 웨비 팀원들의 사진(before) 🌊
 
 ![사진 2024  11  23  오후 9 04](https://github.com/user-attachments/assets/96c8887f-a7e8-455f-9de1-356e1132fdf4)
+
+## 웨비 팀원들의 사진(after) 🌊🌊
+
+![사진 2024  11  24  오전 8 18](https://github.com/user-attachments/assets/3cb43409-9c0a-4b96-9ab9-2a5085482f21)
