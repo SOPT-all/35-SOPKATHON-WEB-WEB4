@@ -1,7 +1,11 @@
-const DetailPage=()=>{
-    return(
-        <div>detail page</div>
-    )
-}
+import DetailCard from './components/DetailCard/DetailCard';
+
+const DetailPage = () => {
+  return (
+    <div>
+      <DetailCard />
+    </div>
+  );
+};
 
 export default DetailPage;
