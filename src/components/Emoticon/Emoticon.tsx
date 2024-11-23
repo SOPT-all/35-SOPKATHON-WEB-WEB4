@@ -28,7 +28,7 @@ const Emoticon = ({ goodCount, drinkCount, pellikeonCount, talentCount }: Emotic
         <div css={EmoticonItem} key={emoticon.id}>
           <div css={EmoticonIcon}>{emoticon.icon}</div>
           <span css={EmoticonLabel}>{emoticon.label}</span>
-          <span css={EmoticonCount}>asd{emoticon.count.toString().padStart(2, '0')}</span>
+          <span css={EmoticonCount}>{emoticon.count.toString().padStart(2, '0')}</span>
         </div>
       ))}
     </div>
