@@ -17,9 +17,19 @@ export const failRecordsContainer = css`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  padding-bottom: 7rem;
 `;
 
 export const failCardWrapper = css`
   display: flex;
   flex-direction: column;
+  position: relative;
+`;
+
+export const badge = css`
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
 `;
