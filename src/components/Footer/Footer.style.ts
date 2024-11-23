@@ -1,43 +1,30 @@
+import { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
-export const footerContainer = css`
+export const footerContainer = (theme: Theme) => css`
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1rem;
+    padding: 0.8rem 2rem;
+    height: 7rem;
+    background-color: ${theme.color.gray900};
+
+    span{
+        color: ${theme.color.gray600};
+        ${theme.font.body4_m_12};
+    }
 `;
 
-export const homeWrapper = css`
+export const footerBtnWrapper = css`
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
+    &:hover {
+        color: red;
     }
 `;
 
-export const addPostWrapper = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
-    }
-`;
-
-export const myPageWrapper = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    div {
-        width: 4rem;
-        height: 4rem;
-        background-color: black;
-    }
+export const footerIconStyle = css`
+    width: 3.2rem;
+    height: 3.2rem;
 `;
