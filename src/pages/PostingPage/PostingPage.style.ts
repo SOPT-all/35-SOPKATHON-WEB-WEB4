@@ -24,9 +24,13 @@ export const topSection = (theme: Theme) => css`
   height: 3.2rem;
 
   h1 {
-    margin-left: 6.1rem;
+    margin-left: 3.9rem;
     color: ${theme.color.white};
     ${theme.font.subtitle1_b_20};
+  }
+
+  span {
+    color: ${theme.color.lime};
   }
 `;
 
@@ -80,8 +84,9 @@ export const selectBackgroundContainer = (theme: Theme) => css`
     width: 5.6rem;
     height: 5.6rem;
 
+    border: 1px solid ${theme.color.white};
     border-radius: 8px;
-    background-color: ${theme.color.gray200};
+    background-color: ${theme.color.black};
     color: ${theme.color.white};
   }
 `;
