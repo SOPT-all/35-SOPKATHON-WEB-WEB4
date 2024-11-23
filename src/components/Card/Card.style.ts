@@ -3,8 +3,8 @@ import { css, Theme } from '@emotion/react';
 export const cardWrapper = (randomImage: string) => css`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 16rem;
   padding: 3.4rem 6.2rem;
