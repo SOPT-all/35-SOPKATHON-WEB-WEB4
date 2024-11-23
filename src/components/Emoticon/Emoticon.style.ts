@@ -16,11 +16,11 @@ export const EmoticonContainer = (theme: Theme) => css`
   }
 `;
 
-export const EmoticonItem = (theme: Theme) => css`
+export const EmoticonItem = (theme: Theme, isSelected: boolean) => css`
   display: flex;
   align-items: center;
   background-color: ${theme.color.gray900};
-  border: 1px solid ${theme.color.gray700};
+  border: 1px solid ${isSelected ? theme.color.lime : theme.color.gray700}; // 선택된 경우 lime 색상
   border-radius: 4px;
   padding: 0.4rem 1rem;
   ${theme.font.body4_m_12};

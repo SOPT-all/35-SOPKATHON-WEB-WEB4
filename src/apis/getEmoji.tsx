@@ -1,5 +1,6 @@
 import { END_POINT } from '@utils/constants/api';
 import { client } from './client';
+import { EmojiType } from '@type/emojiType';
 
 export const deleteEmoji = async (failId: number) => {
   try {
@@ -12,8 +13,9 @@ export const deleteEmoji = async (failId: number) => {
   }
 };
 
-export const postEmoji = async (failId: number, emojiType: string) => {
+export const postEmoji = async (failId: number, emojiType: EmojiType) => {
   try {
+    console.log(emojiType);
     const response = await client.post(END_POINT.POST_EMOJI(failId), null, {
       params: { emojiType },
     });
