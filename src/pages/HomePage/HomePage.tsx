@@ -6,6 +6,7 @@ import Footer from '@components/Footer/Footer';
 import { Key, useEffect, useState } from 'react';
 import { gallerySection, h1TextStyle, rankingSection } from './HomePage.style';
 import { getAllFails, getFailsRank } from '@/apis/getFails';
+import { EmojiType } from '@type/emojiType';
 
 interface FailInfo {
   failId: number;
@@ -14,6 +15,7 @@ interface FailInfo {
   drinkCount: number;
   pellikeonCount: number;
   talentCount: number;
+  clickedEmoji: EmojiType;
 }
 
 interface RankingData {
@@ -24,7 +26,7 @@ interface RankingData {
 
 const HomePage = () => {
   const [failsInfos, setFailsInfos] = useState<FailInfo[]>([]);
-  const [rankingData, setRankingData] = useState<RankingData[]>([]); 
+  const [rankingData, setRankingData] = useState<RankingData[]>([]);
 
   useEffect(() => {
     const fetchFails = async () => {
@@ -44,11 +46,7 @@ const HomePage = () => {
         const formattedRankingData = rankData.failDetailInfoList.map((fail: any) => ({
           failId: fail.failId,
           content: fail.content,
-          count:
-            fail.goodCount +
-            fail.drinkCount +
-            fail.pellikeonCount +
-            fail.talentCount,
+          count: fail.goodCount + fail.drinkCount + fail.pellikeonCount + fail.talentCount,
         }));
         setRankingData(formattedRankingData);
       } catch (err) {
@@ -82,14 +80,17 @@ const HomePage = () => {
             drinkCount: number;
             pellikeonCount: number;
             talentCount: number;
+            clickedEmoji: EmojiType;
           }) => (
             <div key={fail.failId}>
               <Card failId={fail.failId as number} content={fail.content} />
               <Emoticon
+                failId={fail.failId as number}
                 goodCount={fail.goodCount}
                 drinkCount={fail.drinkCount}
                 pellikeonCount={fail.pellikeonCount}
                 talentCount={fail.talentCount}
+                clickedEmoji={fail.clickedEmoji}
               />
             </div>
           )

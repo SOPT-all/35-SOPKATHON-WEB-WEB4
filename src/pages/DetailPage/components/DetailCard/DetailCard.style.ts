@@ -1,7 +1,7 @@
 import { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
-const detailCardWrapper = (randomImage: string) => (theme: Theme) => css`
+const detailCardWrapper = (randomImage: string) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;

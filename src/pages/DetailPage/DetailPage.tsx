@@ -5,6 +5,7 @@ import Footer from '@components/Footer/Footer';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getDetailFail } from '@/apis/getFails';
+import { EmojiType } from '@type/emojiType';
 
 interface CardData {
   content: string;
@@ -13,6 +14,7 @@ interface CardData {
   drinkCount: number;
   pellikeonCount: number;
   talentCount: number;
+  clickedEmoji: EmojiType;
 }
 
 const DetailPage = () => {
@@ -22,8 +24,12 @@ const DetailPage = () => {
   useEffect(() => {
     const fetchDetailFail = async () => {
       if (failId) {
-        const data = await getDetailFail(Number(failId));
-        setCardData(data);
+        try {
+          const data = await getDetailFail(Number(failId));
+          setCardData(data);
+        } catch (err) {
+          console.error('Failed to fetch detail data:', err);
+        }
       }
     };
 
@@ -39,10 +45,12 @@ const DetailPage = () => {
       <Header isGoBack={true} />
       <DetailCard content={cardData.content} writerName={cardData.writerName} />
       <Emoticon
+        failId={Number(failId)}
         goodCount={cardData.goodCount}
         drinkCount={cardData.drinkCount}
         pellikeonCount={cardData.pellikeonCount}
         talentCount={cardData.talentCount}
+        clickedEmoji={cardData.clickedEmoji}
       />
       <Footer />
     </div>
