@@ -1,4 +1,6 @@
 import RankingSection from '@components/RankingSection/RankingSection';
+import Card from '@components/Card/Card';
+import Emoticon from '@components/Emoticon/Emoticon';
 
 const rankingData = [
   {
@@ -27,6 +29,8 @@ const HomePage = () => {
   return (
     <div>
       <RankingSection rankingData={rankingData} />
+      <Card content={''} />
+      <Emoticon />
     </div>
   );
 };

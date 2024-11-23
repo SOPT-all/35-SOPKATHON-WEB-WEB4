@@ -10,7 +10,7 @@ function Card({ content, onClickMore }: CardProps) {
     <div css={styles.cardWrapper}>
       <p css={styles.content}>{content}</p>
       <span css={styles.moreButton} onClick={onClickMore}>
-        . . .더보기
+        더보기
       </span>
     </div>
   );
