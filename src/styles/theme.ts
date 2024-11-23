@@ -87,6 +87,12 @@ const theme = {
       line-height: 150%;
       letter-spacing: 0px;
     `,
+    body1_r_16: css`
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      letter-spacing: 0px;
+    `,
     body2_m_14: css`
       font-size: 14px;
       font-weight: 500;

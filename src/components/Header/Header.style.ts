@@ -1,12 +1,14 @@
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 
-export const headerContainer = css`
+export const headerContainer = (theme: Theme) => css`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 3rem; // 수정 예정
+  height: 4.8rem;
+  padding: 0.4rem 0;
 
-  background-color: pink;
+  border-bottom: 1px solid ${theme.color.gray800};
+  background-color: ${theme.color.black};
 
   section {
     &:nth-of-type(1) {

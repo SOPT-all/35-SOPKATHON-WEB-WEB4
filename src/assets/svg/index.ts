@@ -1,3 +1,4 @@
+export { default as IcArrowLeft } from './IcArrowLeft';
 export { default as IcFailking1 } from './IcFailking1';
 export { default as IcFailking2 } from './IcFailking2';
 export { default as IcFailking3 } from './IcFailking3';
