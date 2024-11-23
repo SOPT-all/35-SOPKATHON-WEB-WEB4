@@ -27,8 +27,8 @@ export const failCardWrapper = css`
 `;
 
 export const badge = css`
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
   position: absolute;
   top: 0rem;
   right: 0.4rem;
