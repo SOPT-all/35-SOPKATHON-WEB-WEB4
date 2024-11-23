@@ -1,4 +1,4 @@
-import { addPostWrapper, footerContainer, homeWrapper, myPageWrapper } from './FooterStyle';
+import { addPostWrapper, footerContainer, homeWrapper, myPageWrapper } from './Footer.style';
 
 const Footer = () => {
     return (
