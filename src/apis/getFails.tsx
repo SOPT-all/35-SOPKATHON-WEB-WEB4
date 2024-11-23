@@ -14,7 +14,7 @@ export const getAllFails = async () => {
 
 export const getMyFails = async () => {
   try {
-    const response = await client.get(END_POINT.GET_ALL_FAILS);
+    const response = await client.get(END_POINT.GET_MY_FAIL);
     return response.data.data;
   } catch (error) {
     if (error instanceof Error) {
