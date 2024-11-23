@@ -20,8 +20,8 @@ const Emoticon = () => {
       {emoticons.map((emoticon) => (
         <div css={EmoticonItem} key={emoticon.id}>
           <div css={EmoticonIcon}>{emoticon.icon}</div>
-          <span css={EmoticonLabel}>{emoticon.label}</span>
-          <span css={EmoticonCount}>{emoticon.count.toString().padStart(2, '0')}</span>
+            <span css={EmoticonLabel}>{emoticon.label}</span>
+            <span css={EmoticonCount}>{emoticon.count.toString().padStart(2, '0')}</span>
         </div>
       ))}
     </div>
