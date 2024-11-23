@@ -6,6 +6,7 @@ import Footer from '@components/Footer/Footer';
 import { badge, failCardWrapper, failRecordsContainer, titleStyle } from './MyPage.style';
 import { ImgPelican24 } from '@assets/svg';
 import { getMyFails } from '@/apis/getFails';
+import { data } from 'react-router-dom';
 
 const MyPage = () => {
   const [failsInfos, setFailsInfos] = useState<any[]>([]);
@@ -25,7 +26,6 @@ const MyPage = () => {
     fetchFails();
   }, []);
 
-
   return (
     <div>
       <Header isGoBack={false} />
@@ -38,10 +38,12 @@ const MyPage = () => {
             {index === 0 && <ImgPelican24 css={badge} />}
             <Card failId={fail.failId} content={fail.content} />
             <Emoticon
+              failId={fail.failId}
               goodCount={fail.goodCount}
               drinkCount={fail.drinkCount}
               pellikeonCount={fail.pellikeonCount}
               talentCount={fail.talentCount}
+              clickedEmoji={fail.clickedEmoji}
             />
           </div>
         ))}
