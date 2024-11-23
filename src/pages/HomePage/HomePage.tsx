@@ -30,10 +30,10 @@ const HomePage = () => {
     const fetchFails = async () => {
       try {
         const data = await getAllFails();
-        setFailsInfos(data.failInfos); 
+        setFailsInfos(data.failInfos);
       } catch (err) {
         if (err instanceof Error) {
-          console.error(err.message); 
+          console.error(err.message);
         }
       }
     };
@@ -73,26 +73,28 @@ const HomePage = () => {
       <h1 css={h1TextStyle}>
         <span>OOPSIE!</span> 갤러리
       </h1>
-      {failsInfos.map(
-        (fail: {
-          failId: Key | null | undefined;
-          content: string;
-          goodCount: number;
-          drinkCount: number;
-          pellikeonCount: number;
-          talentCount: number;
-        }) => (
-          <div key={fail.failId} css={gallerySection}>
-            <Card failId={fail.failId as number} content={fail.content} />
-            <Emoticon
-              goodCount={fail.goodCount}
-              drinkCount={fail.drinkCount}
-              pellikeonCount={fail.pellikeonCount}
-              talentCount={fail.talentCount}
-            />
-          </div>
-        )
-      )}
+      <section css={gallerySection}>
+        {failsInfos.map(
+          (fail: {
+            failId: Key | null | undefined;
+            content: string;
+            goodCount: number;
+            drinkCount: number;
+            pellikeonCount: number;
+            talentCount: number;
+          }) => (
+            <div key={fail.failId}>
+              <Card failId={fail.failId as number} content={fail.content} />
+              <Emoticon
+                goodCount={fail.goodCount}
+                drinkCount={fail.drinkCount}
+                pellikeonCount={fail.pellikeonCount}
+                talentCount={fail.talentCount}
+              />
+            </div>
+          )
+        )}
+      </section>
       <Footer />
     </div>
   );

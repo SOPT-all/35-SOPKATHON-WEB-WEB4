@@ -4,7 +4,7 @@ import Card from '@components/Card/Card';
 import Emoticon from '@components/Emoticon/Emoticon';
 import Footer from '@components/Footer/Footer';
 import { badge, failCardWrapper, failRecordsContainer, titleStyle } from './MyPage.style';
-import { ImgPelican24 } from '@assets/svg';
+import { ImgBadge } from '@assets/svg';
 import { getMyFails } from '@/apis/getFails';
 
 const MyPage = () => {
@@ -25,7 +25,6 @@ const MyPage = () => {
     fetchFails();
   }, []);
 
-
   return (
     <div>
       <Header isGoBack={false} />
@@ -35,13 +34,15 @@ const MyPage = () => {
       <div css={failRecordsContainer}>
         {failsInfos.map((fail, index) => (
           <div key={fail.failId} css={failCardWrapper}>
-            {index === 0 && <ImgPelican24 css={badge} />}
+            {index === 0 && <ImgBadge css={badge} />}
             <Card failId={fail.failId} content={fail.content} />
             <Emoticon
+              failId={fail.failId}
               goodCount={fail.goodCount}
               drinkCount={fail.drinkCount}
               pellikeonCount={fail.pellikeonCount}
               talentCount={fail.talentCount}
+              clickedEmoji={fail.clickedEmoji}
             />
           </div>
         ))}
