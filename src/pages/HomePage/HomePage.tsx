@@ -3,9 +3,9 @@ import RankingSection from '@components/RankingSection/RankingSection';
 import Emoticon from '@components/Emoticon/Emoticon';
 import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
-import { FAILS_DATA } from '@utils/mocks/failsData';
-import { Key } from 'react';
+import { Key, useEffect, useState } from 'react';
 import { gallerySection, h1TextStyle, rankingSection } from './HomePage.style';
+import { getAllFails } from '@/apis/getFails';
 
 const rankingData = [
   {
@@ -31,6 +31,26 @@ const rankingData = [
 ];
 
 const HomePage = () => {
+  const [failsInfos, setFailsInfos] = useState<any[]>([]); 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFails = async () => {
+      try {
+        const data = await getAllFails();
+        setFailsInfos(data.failInfos); 
+      } catch (err) {
+        if (err instanceof Error) {
+          console.error(err.message); 
+        }
+      } finally {
+        setIsLoading(false); 
+      }
+    };
+
+    fetchFails();
+  }, []);
+
   return (
     <div>
       <Header isGoBack={false} />
@@ -40,7 +60,7 @@ const HomePage = () => {
       <h1 css={h1TextStyle}>
         <span>OOPSIE!</span> 갤러리
       </h1>
-      {FAILS_DATA.data.failInfos.map(
+      {failsInfos.map(
         (fail: {
           failId: Key | null | undefined;
           content: string;
@@ -50,9 +70,7 @@ const HomePage = () => {
           talentCount: number;
         }) => (
           <div key={fail.failId} css={gallerySection}>
-            {/* Card 컴포넌트로 content 표시 */}
-            <Card content={fail.content} />
-            {/* Emoticon 컴포넌트로 클릭된 이모티콘 데이터 표시 */}
+            <Card failId={fail.failId as number} content={fail.content} />
             <Emoticon
               goodCount={fail.goodCount}
               drinkCount={fail.drinkCount}
