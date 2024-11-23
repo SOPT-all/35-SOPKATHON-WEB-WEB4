@@ -25,6 +25,7 @@ export { default as IcHomeInactive } from './IcHomeInactive';
 export { default as IcLogo } from './IcLogo';
 export { default as IcMyInactive } from './IcMyInactive';
 export { default as IcSuccess } from './IcSuccess';
+export { default as ImgBadge } from './ImgBadge';
 export { default as ImgBeer24 } from './ImgBeer24';
 export { default as ImgGood24 } from './ImgGood24';
 export { default as ImgPelican24 } from './ImgPelican24';

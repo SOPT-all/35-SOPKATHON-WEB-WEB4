@@ -30,6 +30,6 @@ export const badge = css`
   width: 4rem;
   height: 4rem;
   position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
+  top: 0rem;
+  right: 0.4rem;
 `;
