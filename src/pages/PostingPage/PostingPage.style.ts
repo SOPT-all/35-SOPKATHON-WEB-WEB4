@@ -104,4 +104,5 @@ export const uploadButton = (theme: Theme) => css`
 export const imgSelectIcon = css`
   width: 5.6rem;
   height: 5.6rem;
+  cursor: pointer;
 `;

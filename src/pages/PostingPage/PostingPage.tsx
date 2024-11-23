@@ -23,6 +23,7 @@ import {
 } from './PostingPage.style';
 import Footer from '@components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import { postFail } from '@/apis/getFails';
 
 const iconMappings = [
   {
@@ -48,6 +49,7 @@ const iconMappings = [
 const Posting = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBg, setSelectedBg] = useState(0);
+  const [textareaValue, setTextareaValue] = useState('');
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -57,15 +59,22 @@ const Posting = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextareaValue(e.target.value);
+  };
+
   const handleBgClick = (index: number) => {
     setSelectedBg(index);
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     const selectedType = iconMappings[selectedBg].type;
-    // 서버로 데이터를 보낼 때 selectedLetter를 포함시킵니다.
-    console.log('Selected Background Letter:', selectedType);
-    // 여기에 서버로 데이터를 보내는 로직을 추가하세요.
+    const response = await postFail({
+      content: textareaValue,
+      backgroundType: selectedType,
+    });
+    console.log(response);
+
     openModal();
   };
 
@@ -84,6 +93,8 @@ const Posting = () => {
             <textarea
               css={textareaStyle(iconMappings[selectedBg].bgImage)}
               placeholder="당신의 실패경험을 적어주세요."
+              value={textareaValue}
+              onChange={handleTextareaChange}
             />
           </section>
           <section css={selectBackgroundContainer}>
@@ -98,7 +109,7 @@ const Posting = () => {
               );
             })}
           </section>
-          <button onClick={openModal} css={uploadButton}>
+          <button onClick={handleUpload} css={uploadButton}>
             업로드
           </button>
         </main>
