@@ -1,5 +1,8 @@
+import { ThemeProvider } from '@emotion/react';
+import theme from '@styles/theme';
+
 function App() {
-  return <h1>Hello, WEB4!!!</h1>;
+  return <ThemeProvider theme={theme}></ThemeProvider>;
 }
 
 export default App;
