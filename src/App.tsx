@@ -3,14 +3,14 @@ import globalStyle from '@styles/global';
 import theme from '@styles/theme';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import pageRoutes from '@routes/PageRoutes';
-import Card from '@components/Card/Card';
+import Emoticon from '@components/Emoticon/Emoticon';
 
 function App() {
   const router = createBrowserRouter([...pageRoutes]);
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyle} />
-      <Card content={''} />
+      <Emoticon />
       <RouterProvider router={router} />
     </ThemeProvider>
   );
