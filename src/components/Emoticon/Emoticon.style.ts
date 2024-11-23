@@ -46,6 +46,7 @@ export const EmoticonLabel = css`
 export const EmoticonCount = css`
   ${theme.font.body4_m_12};
   margin-left: -0.5rem;
+  color: ${theme.color.green};
 `;
 
 export const EmoticonIcon = css`
