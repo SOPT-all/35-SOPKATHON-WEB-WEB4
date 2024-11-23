@@ -5,34 +5,26 @@ import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import { Key, useEffect, useState } from 'react';
 import { gallerySection, h1TextStyle, rankingSection } from './HomePage.style';
-import { getAllFails } from '@/apis/getFails';
+import { getAllFails, getFailsRank } from '@/apis/getFails';
 
-const rankingData = [
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 0,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 12,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 44,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 32,
-  },
-  {
-    text: '두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~두줄만 입력 가능하게~~~',
-    count: 3,
-  },
-];
+interface FailInfo {
+  failId: number;
+  content: string;
+  goodCount: number;
+  drinkCount: number;
+  pellikeonCount: number;
+  talentCount: number;
+}
+
+interface RankingData {
+  failId: number;
+  content: string;
+  count: number;
+}
 
 const HomePage = () => {
-  const [failsInfos, setFailsInfos] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [failsInfos, setFailsInfos] = useState<FailInfo[]>([]);
+  const [rankingData, setRankingData] = useState<RankingData[]>([]); 
 
   useEffect(() => {
     const fetchFails = async () => {
@@ -43,13 +35,34 @@ const HomePage = () => {
         if (err instanceof Error) {
           console.error(err.message);
         }
-      } finally {
-        setIsLoading(false);
+      }
+    };
+
+    const fetchRanking = async () => {
+      try {
+        const rankData = await getFailsRank();
+        const formattedRankingData = rankData.failDetailInfoList.map((fail: any) => ({
+          failId: fail.failId,
+          content: fail.content,
+          count:
+            fail.goodCount +
+            fail.drinkCount +
+            fail.pellikeonCount +
+            fail.talentCount,
+        }));
+        setRankingData(formattedRankingData);
+      } catch (err) {
+        if (err instanceof Error) {
+          console.error(err.message);
+        }
       }
     };
 
     fetchFails();
+    fetchRanking();
   }, []);
+
+  console.log(rankingData);
 
   return (
     <div>
