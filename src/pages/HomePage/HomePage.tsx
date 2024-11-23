@@ -1,3 +1,4 @@
+import Card from '@components/Card/Card';
 import RankingSection from '@components/RankingSection/RankingSection';
 
 const rankingData = [
@@ -27,6 +28,7 @@ const HomePage = () => {
   return (
     <div>
       <RankingSection rankingData={rankingData} />
+      <Card content="asefaselifjasliejfl;aisejfl;a" />
     </div>
   );
 };
