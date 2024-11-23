@@ -52,7 +52,7 @@ main은 프로덕트 배포를 위한 브랜치에요.
 
 develop에서 분기된 브랜치는 `구현기능유형 / 이름 / 구현기능` 네이밍 규칙을 가져요. (camelCase 사용)
 
-- ex) `feat/hwarang/cardCommponent`
+- ex) `feat/cardCommponent/hwarang`
 
 ### 커밋 컨벤션 🗣️
 
