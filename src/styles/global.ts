@@ -7,17 +7,24 @@ const globalStyle = css`
     box-sizing: border-box;
   }
 
+  :root {
+    --min-width: 375px;
+    --max-width: 375px;
+  }
   html,
   body {
     font-size: 62.5%;
     width: 100%;
     scroll-behavior: smooth;
-  }
-
-  body {
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    background-color: whitesmoke;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   input,
@@ -26,8 +33,24 @@ const globalStyle = css`
     outline: none;
   }
 
-  a {
-    text-decoration: none;
+  #root {
+    width: 100%;
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    min-height: 100dvh;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 375px) {
+    #root {
+      max-width: var(--max-width);
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 
